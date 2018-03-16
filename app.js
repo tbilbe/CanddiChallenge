@@ -1,11 +1,9 @@
 // require dependencies
-var express = require('express');
 var cheerio = require('cheerio');
-var requestPromise = require('request-promise');
 var request = require('request');
 
 var searchCompany = splitEmailDown('test@deerns.com');
-var URL = 'https://www.' + searchCompany + '.co.uk';
+var URL = 'https://www.' + searchCompany + '.co.uk/';
 request(URL, function (error, response, body) {
   if (!error && response.statusCode === 200) {
     var $ = cheerio.load(body);
